@@ -137,6 +137,7 @@ const ResumeBuilder = () => {
                     <div>
                         {/* btns */}
                     </div>
+                    {/* resume preview*/ }
                 </div>
             </div>
         </div>
