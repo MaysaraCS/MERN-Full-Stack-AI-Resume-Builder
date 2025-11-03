@@ -10,6 +10,7 @@ import ProfessionalSummaryForm from '../components/ProfessionalSummaryForm'
 import ExperienceForm from '../components/ExperienceForm'
 import EducationForm from '../components/EducationForm'
 import ProjectForm from '../components/ProjectForm'
+import SkillsForm from '../components/SkillsForm'
 
 const ResumeBuilder = () => {
     const {resumeId} = useParams()
@@ -168,15 +169,34 @@ const ResumeBuilder = () => {
                                     onChange={(data)=> setResumeData(prev=>({...prev, project:data}))} />
                                 )
                             }
+
+                            {
+                                activeSection.id === 'skills' && (
+                                    <SkillsForm data={resumeData.skills}
+                                    onChange={(data)=> setResumeData(prev=>({...prev, skills:data}))} />
+                                )
+                            }
                             
                         </div>
+                        <button className="bg-gradient-to-br from-green-100 to-green-200
+                        ring-green-300 text-green-600 ring hover:ring-green-400 
+                        transition-all rounded-md px-6 py-2 mt-6 text-sm">
+                            Save Changes
+                        </button>
                     </div>
                 </div>
                 
                 {/* right panel -preview*/ }
                 <div className='lg:col-span-7 max-lg:mt-6'>
-                    <div>
+                    <div className='relative w-full'>
                         {/* btns */}
+                        <div className='absolute bottom-3 left-0 right-0 flex items-center
+                        justify-end gap-2'>
+                            {resumeData.public && (
+                                <button></button>
+                            )}
+
+                        </div>
                     </div>
                     {/* resume preview*/ }
                     <ResumePreview data={resumeData} template={resumeData.template}
