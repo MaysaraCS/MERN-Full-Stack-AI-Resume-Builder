@@ -3,3 +3,4 @@ npm install tailwindcss @tailwindcss/vite
 npm init -y
 npm install express dotenv cors bcrypt jsonwebtoken mongoose multer
 npm install --save-dev nodemon
+npm install @imagekit/nodejs
