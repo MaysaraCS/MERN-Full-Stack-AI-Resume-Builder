@@ -53,12 +53,12 @@ export const loginUser = async (req , res)=>{
         // check if user exist or no
         const user = await User.findOne({email})
         if(!user){
-            return res.status(400).json({message: 'Invalid email '})
+            return res.status(400).json({message: 'Invalid email or password'})
         }
 
         // check if password is correct
         if(!await user.comparePassword(password)){
-            return res.status(400).json({message: 'Invalid  password'})
+            return res.status(400).json({message: 'Invalid email or password'})
         }
 
 
